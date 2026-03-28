@@ -1,0 +1,25 @@
+# === Global build artifacts ===
+**/*.o
+**/*.a
+**/*.so
+**/*.out
+
+# === Suckless binaries (default names) ===
+dwm/dwm
+st/st
+dmenu/dmenu
+slstatus/slstatus
+
+# === config.mk (machine-specific) ===
+**/config.mk
+
+# === Patch leftovers ===
+**/*.orig
+**/*.rej
+
+# === Core dumps ===
+**/core
+
+# === Optional build dirs ===
+**/build/
+**/bin/
