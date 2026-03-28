@@ -31,4 +31,4 @@
 - scrollback-mouse
 - scrollback-mouse-altscreen
 
-Also make sure to visit my dot files at: https://github.com/Teb0so/dotfiles
+Also make sure to visit my dotfiles at: https://github.com/Teb0so/dotfiles
