@@ -5,9 +5,9 @@
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 8;        /* gaps between windows */
-static const unsigned int snap      = 8;       /* snap pixel */
+static const unsigned int snap      = 8;        /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
-static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
+static const unsigned int systrayonleft  = 0;   /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;        /* 0 means no systray */
@@ -34,9 +34,9 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	/* class          instance    title       tags mask     isfloating   monitor */
+	{ "copyq",        NULL,       NULL,       0,            1,           -1 },
+	{ "qalculate-qt", NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -69,6 +69,11 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-c", "-l", "20", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "firefox", NULL };
+static const char *filemanagercmd[]  = { "pcmanfm-qt", NULL };
+static const char *clipbcmd[]  = { "copyq", "toggle", NULL };
+static const char *calccmd[]  = { "qalculate-qt", NULL };
+static const char *lockcmd[]  = { "i3lock", NULL };
+static const char *randwalcmd[]  = { "/home/teb0so/.local/scripts/random_wall.sh", NULL };
 
 #include "movestack.c"
 static const Key keys[] = {
@@ -76,6 +81,11 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_m,      spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
+	{ MODKEY,                       XK_e,      spawn,          {.v = filemanagercmd } },
+	{ MODKEY,                       XK_v,      spawn,          {.v = clipbcmd } },
+	{ MODKEY,                       XK_c,      spawn,          {.v = calccmd } },
+	{ MODKEY,                       XK_z,      spawn,          {.v = lockcmd } },
+	{ MODKEY|ControlMask,           XK_w,      spawn,          {.v = randwalcmd} },
 	// { MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -112,7 +122,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
+	{ MODKEY|ShiftMask,             XK_c,      quit,           {1} }, 
 };
 
 /* button definitions */
