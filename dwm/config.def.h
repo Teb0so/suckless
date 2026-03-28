@@ -74,8 +74,13 @@ static const char *clipbcmd[]  = { "copyq", "toggle", NULL };
 static const char *calccmd[]  = { "qalculate-qt", NULL };
 static const char *lockcmd[]  = { "i3lock", NULL };
 static const char *randwalcmd[]  = { "/home/teb0so/.local/scripts/random_wall.sh", NULL };
+static const char *printcmd[]  = { "scrot", NULL };
+static const char *volupcmd[]   = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
+static const char *voldowncmd[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
+static const char *volmutecmd[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
 
 #include "movestack.c"
+#include <X11/XF86keysym.h>
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -85,7 +90,11 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_v,      spawn,          {.v = clipbcmd } },
 	{ MODKEY,                       XK_c,      spawn,          {.v = calccmd } },
 	{ MODKEY,                       XK_z,      spawn,          {.v = lockcmd } },
-	{ MODKEY|ControlMask,           XK_w,      spawn,          {.v = randwalcmd} },
+	{ MODKEY|ControlMask,           XK_w,      spawn,          {.v = randwalcmd } },
+	{ 0,                            XK_Print,  spawn,          {.v = printcmd } },
+	{ 0,             XF86XK_AudioRaiseVolume, spawn,           {.v = volupcmd   } },
+	{ 0,             XF86XK_AudioLowerVolume, spawn,           {.v = voldowncmd } },
+	{ 0,                    XF86XK_AudioMute, spawn,           {.v = volmutecmd } },
 	// { MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
