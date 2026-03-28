@@ -1,5 +1,7 @@
 # My fork of suckless tools that I use
 
+![](https://raw.githubusercontent.com/Teb0so/suckless/refs/heads/main/screenshot.png)
+
 # Patches
 
 ### dmenu
@@ -28,3 +30,5 @@
 - scrollback
 - scrollback-mouse
 - scrollback-mouse-altscreen
+
+Also make sure to visit my dot files at: https://github.com/Teb0so/dotfiles
