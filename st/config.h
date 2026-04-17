@@ -5,7 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "IosevkaTermSlabNerdFont-Regular:pixelsize=17:antialias=true:autohint=true";
+static char *font = "IosevkaTermSlabNerdFont-Regular:pixelsize=18";
+static char *font2[] = { "NotoColorEmoji:pixelsize=18:antialias=true:autohint=true" };
 static int borderpx = 2;
 
 /*
