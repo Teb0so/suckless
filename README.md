@@ -16,6 +16,7 @@
 - pertag
 - restartsig
 - restoreafterrestart
+- setborderpx
 - statusallmons
 - systray
 - tiledmove
@@ -27,6 +28,8 @@
 - alpha
 - anysize
 - bold-is-not-bright
+- boxdraw
+- font2
 - scrollback
 - scrollback-mouse
 - scrollback-mouse-altscreen
